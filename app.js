@@ -5,15 +5,20 @@ let listaAmigos = [];
 function agregarAmigo (){
     let inputNombre = document.getElementById("amigo");
     let nombre = inputNombre.value;
-    console.log(nombre);
     if (nombre == "") {
         alert("Por favor ingrese un nombre valido");
     } else {
         listaAmigos.push(nombre);
+        mostrarAmigos();
     }
-    console.log(listaAmigos);
     inputNombre.value = "";
-    return listaAmigos;
 }
 
+function mostrarAmigos() {
+    let elementoLista = "";
+    for (let i = 0; i < listaAmigos.length; i++) {
+        elementoLista += `<li>${listaAmigos[i]}</li>`;
+    }
+    document.getElementById("listaAmigos").innerHTML = elementoLista;
+}
 
